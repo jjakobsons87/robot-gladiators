@@ -1,9 +1,3 @@
-//Gane States
-// "WIN" - Player robot has defeated all enemy-robots
-//      * Fight all enemy-robots
-//      *Defeat each enemy-robot
-// "LOSE" - Player robot's health is zero or less 
-
 // setting player variable information 
 var playerName = window.prompt("What is your robot's name?");
 var playerHealth = 100;
@@ -14,11 +8,6 @@ var playerMoney = 10;
 var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
-
-console.log(enemyNames);
-console.log(enemyNames.length);
-console.log(enemyNames[0]);
-console.log(enemyNames[3]);
 
 // creating the "fight" function 
 var fight = function(enemyName) {
@@ -98,9 +87,6 @@ var startGame = function() {
             // reset enemyHealth before starting a new fight 
             enemyHealth = 50;
 
-            //use the debugger to pause script from running and check what's going on at that moment in the code 
-            //debugger;
-
             // pass the pickedEnemyName variable's value into the fight function, where it will assume the value of the enemyName parameter 
             fight(pickedEnemyName);
 
@@ -128,11 +114,12 @@ var startGame = function() {
 
 //function to end the entire game 
 var endGame = function() {
+    window.alert("The game has now ended. Let's see how you did!");
+
     // if player is still alice, player wins! 
     if (playerHealth > 0) {
-        window.alert("Great job, you've survived the game! You now have a sctore of " + playerMoney + ".");
-    }
-    else {
+        window.alert("Great job, you've survived the game! You now have a score of " + playerMoney + ".");
+    } else {
         window.alert("You've lost your robot in battle.");
     }
 
@@ -142,8 +129,7 @@ var endGame = function() {
     if (playAgainConfirm) {
         //restart the game
         startGame();
-    }
-    else {
+    } else {
         window.alert("Thank you for playing Robot Gladiators! Come back soon!");
     }
 }
@@ -197,14 +183,3 @@ var shop = function() {
 
 // start the game when the page loads 
 startGame();
-
-
-// at the end of the game, win or lose, display a prompt to ask if the user wants to play again
-// if yes start the fight loop again
-// in no, end the script 
-
-//once the player defeats or skips an enemy robot, prompt the user if they want to visit the shop
-//if yes, ask the user if they want to refill, upgrade, or leave 
-// if refill, up playerHealth by X 
-// if Upgrade, increase playerAttack by X 
-// if leave, move onto the next robot
