@@ -1,3 +1,11 @@
+//Game Functions 
+
+//function to generate a random numeric value 
+var randomNumber = function(min, max) {
+    var value = Math.floor(Math.random() * (max - min + 1) + min); 
+    return value;
+};
+
 // creating the "fight" function 
 var fight = function(enemy) {
     // repeat and execute as long as the enemy-robot is alive
@@ -41,9 +49,9 @@ var fight = function(enemy) {
             window.alert(enemy.name + "still has " + enemy.health + "health left.");
         }
 
-        // generate random damage value based on player's attack power 
+        // remove player's health by subtracting the amount set in the enemy.attack var
         var damage = randomNumber(enemy.attack - 3, enemy.attack);
-        // remove player's health by subtracting the amount set in the enemy.attack variable 
+       
         playerInfo.health = Math.max(0, playerInfo.health - damage);
         console.log(
             enemy.name + " attacked " + playerInfo.name + ". " + playerInfo.name + " now has " + playerInfo.health + " health remaining."
@@ -154,12 +162,6 @@ var shop = function() {
             shop();
             break;
     }
-};
-
-//function to generate a random numeric value 
-var randomNumber = function(min, max) {
-    var value = Math.floor(Math.random() * (max - min + 1) + min); 
-    return value;
 };
 
 // setting player variable information 
