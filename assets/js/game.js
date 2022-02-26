@@ -19,16 +19,14 @@ var fightOrSkip = function() {
     }
 
      // if player picks "skip" confirm and then stop the loop
-     promptFight = promptFight.toLocaleLowerCase();
+     promptFight = promptFight.toLowerCase();
     if (promptFight === "skip") {
       // confirm player wants to skip
       var confirmSkip = window.confirm("Are you sure you'd like to quit?");
 
     // if yes (true), leave fight
       if (confirmSkip) {
-        window.alert(
-          playerInfo.name + " has decided to skip this fight. Goodbye!"
-        );
+        window.alert(playerInfo.name + " has decided to skip this fight. Goodbye!");
         // subtract money from playerInfo.money for skipping
         playerInfo.money = Math.max(0, playerInfo.money - 10);
 
